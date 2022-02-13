@@ -8,9 +8,20 @@ export default class ThemeContextProvider extends Component {
     lightTheme: { syntax: "#555", ui: "#ddd", bg: "#eee" },
     darkTheme: { syntax: "#ddd", ui: "#333", bg: "#555" },
   };
+
+  handleToggleTheme = () => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        isLight: !this.state.isLight,
+      };
+    });
+  };
   render() {
     return (
-      <ThemeContext.Provider value={{ ...this.state }}>
+      <ThemeContext.Provider
+        value={{ ...this.state, handleToggleTheme: this.handleToggleTheme }}
+      >
         {this.props.children}
       </ThemeContext.Provider>
     );
