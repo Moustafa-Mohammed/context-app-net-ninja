@@ -1,16 +1,17 @@
-import React from "react";
-import { ThemeContext } from "../TemeContext/ThemeContext";
+import React, { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-function ThemeToggler({ handleToggleTheme }) {
-  return (
-    <ThemeContext.Consumer>
-      {(context) => {
-        return (
-          <button onClick={context.handleToggleTheme}>toggle theme</button>
-        );
-      }}
-    </ThemeContext.Consumer>
-  );
-}
+const ThemeToggler = () => {
+  const { handleToggleTheme } = useContext(ThemeContext);
+  const { handleAuthentication } = useContext(AuthContext);
+
+  const handleClick = () => {
+    handleToggleTheme();
+    handleAuthentication();
+  };
+
+  return <button onClick={handleClick}>toggle theme</button>;
+};
 
 export default ThemeToggler;
