@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { ThemeContext } from "../contexts/ThemeContext";
+import ThemeToggler from "./ThemeToggler";
 
 const Navbar = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -11,11 +12,14 @@ const Navbar = () => {
     <nav style={{ backgroundColor: theme.ui, color: theme.syntax }}>
       <h1>Context App</h1>
       <div>{isAuthenticated ? "Logged in" : "Logged out"}</div>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+      <div className="navbar-items">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+        <ThemeToggler />
+      </div>
     </nav>
   );
 };

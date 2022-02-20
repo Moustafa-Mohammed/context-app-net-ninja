@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { ThemeContext } from "../contexts/ThemeContext";
+import Button from "./Button";
+import { FaAffiliatetheme } from "react-icons/fa";
 
 const ThemeToggler = () => {
   const { handleToggleTheme } = useContext(ThemeContext);
@@ -11,7 +13,11 @@ const ThemeToggler = () => {
     handleAuthentication();
   };
 
-  return <button onClick={handleClick}>toggle theme</button>;
+  return (
+    <Button onClick={handleClick}>
+      <FaAffiliatetheme />
+    </Button>
+  );
 };
 
 export default ThemeToggler;

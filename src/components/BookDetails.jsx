@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { BooksContext } from "../contexts/BooksContext";
 import { ThemeContext } from "../contexts/ThemeContext";
+import Button from "./Button";
+import { MdRemoveCircleOutline } from "react-icons/md";
 
 function BookDetails({ book }) {
   const { removeBook } = useContext(BooksContext);
@@ -8,10 +10,15 @@ function BookDetails({ book }) {
   const theme = isLight ? lightTheme : darkTheme;
 
   return (
-    <li style={{ backgroundColor: theme.ui, color: theme.syntax }}>
-      <div>{book.title}</div>
-      <div>by: {book.author}</div>
-      <button onClick={() => removeBook(book.id)}>Remove book</button>
+    <li
+      className="book"
+      style={{ backgroundColor: theme.ui, color: theme.syntax }}
+    >
+      <span>{book.title}</span>
+      <span>by: {book.author}</span>
+      <Button onClick={() => removeBook(book.id)}>
+        <MdRemoveCircleOutline style={{ color: "red" }} />
+      </Button>
     </li>
   );
 }

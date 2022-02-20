@@ -16,7 +16,6 @@ function App() {
             <NewBookForm />
             <BookList />
           </BooksContextProvider>
-          <ThemeToggler />
         </ThemeContextProvider>
       </AuthContextProvider>
     </div>

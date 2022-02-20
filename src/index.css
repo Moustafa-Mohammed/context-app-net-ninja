@@ -22,6 +22,12 @@ nav {
   padding: 5px;
 }
 
+.navbar-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
 nav ul li {
   display: inline-block;
   margin: 0 10px;
@@ -40,4 +46,20 @@ nav ul li {
   padding: 10px;
   margin: 10px auto;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
 }
