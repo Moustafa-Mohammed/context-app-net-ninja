@@ -3,9 +3,10 @@ import { AuthContext } from "../contexts/AuthContext";
 import { ThemeContext } from "../contexts/ThemeContext";
 import Button from "./Button";
 import { FaAffiliatetheme } from "react-icons/fa";
+import { MdOutlineLightMode } from "react-icons/md";
 
 const ThemeToggler = () => {
-  const { handleToggleTheme } = useContext(ThemeContext);
+  const { handleToggleTheme, isLight } = useContext(ThemeContext);
   const { handleAuthentication } = useContext(AuthContext);
 
   const handleClick = () => {
@@ -15,7 +16,7 @@ const ThemeToggler = () => {
 
   return (
     <Button onClick={handleClick}>
-      <FaAffiliatetheme />
+      {isLight ? <MdOutlineLightMode /> : <FaAffiliatetheme />}
     </Button>
   );
 };
